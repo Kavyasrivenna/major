@@ -1,0 +1,76 @@
+/* PhytoMed AI Custom Styles & Print Stylesheets */
+
+/* Glassmorphism subtle accents */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Tab active state */
+.tab-btn.active {
+    border-color: #059669;
+    color: #065f46;
+    background-color: #ecfdf5;
+}
+
+/* Filter button active state */
+.filter-btn.active {
+    background-color: #059669 !important;
+    color: #ffffff !important;
+    border-color: #059669 !important;
+}
+
+/* Pulsing Leaf animation */
+@keyframes leafFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-4px) rotate(2deg); }
+}
+.animate-float {
+    animation: leafFloat 3s ease-in-out infinite;
+}
+
+/* Print Media Formatting: Clean printable clinical report card */
+@media print {
+    header, footer, #dropZone, #cameraBtn, #cameraModal, .sample-btn, #topCandidatesList, #printReportBtn, a[href*="download-zip"] {
+        display: none !important;
+    }
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+    }
+    .max-w-7xl, .max-w-5xl {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .shadow-sm, .shadow-md, .shadow-lg {
+        box-shadow: none !important;
+        border: 1px solid #e2e8f0 !important;
+    }
+    .tab-panel {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        page-break-inside: avoid;
+    }
+    .tab-btn {
+        display: none !important;
+    }
+}

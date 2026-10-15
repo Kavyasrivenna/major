@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PhytoAI - Medicinal Plant Species Identification & Pharmacological Knowledge Retrieval{% endblock %}</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        botanical: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            950: '#052e16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+</head>
+<body class="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="{{ url_for('index') }}" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-botanical-700 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center">
+                            Phyto<span class="text-emerald-600">Med</span>
+                            <span class="ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">AI Monograph</span>
+                        </span>
+                        <p class="text-xs text-slate-600 hidden sm:block">Medicinal Leaf Recognition & Pharmacological Intelligence</p>
+                    </div>
+                </a>
+
+                <!-- Navigation Links -->
+                <nav class="flex items-center space-x-1 sm:space-x-4">
+                    <a href="{{ url_for('index') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {% if request.path == '/' %}bg-emerald-50 text-emerald-700 font-semibold{% else %}text-slate-600 hover:text-slate-900 hover:bg-slate-100{% endif %}">
+                        <i class="fa-solid fa-camera mr-1.5 text-emerald-600"></i> Studio
+                    </a>
+                    <a href="{{ url_for('encyclopedia') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {% if request.path == '/encyclopedia' %}bg-emerald-50 text-emerald-700 font-semibold{% else %}text-slate-600 hover:text-slate-900 hover:bg-slate-100{% endif %}">
+                        <i class="fa-solid fa-book-medical mr-1.5 text-emerald-600"></i> Encyclopedia
+                    </a>
+                    <a href="{{ url_for('about') }}" class="px-3 py-2 rounded-lg text-sm font-medium transition {% if request.path == '/about' %}bg-emerald-50 text-emerald-700 font-semibold{% else %}text-slate-600 hover:text-slate-900 hover:bg-slate-100{% endif %}">
+                        <i class="fa-solid fa-circle-info mr-1.5 text-emerald-600"></i> Methodology & Viva
+                    </a>
+                    <!-- Download Project ZIP Button -->
+                    <a href="{{ url_for('download_zip') }}" class="inline-flex items-center px-3.5 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 shadow-sm shadow-emerald-500/25 transition transform active:scale-95">
+                        <i class="fa-solid fa-file-zipper mr-2"></i> Download ZIP
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content -->
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Authoritative Sources Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 text-sm mt-16 print:hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 text-white font-bold text-lg mb-3">
+                        <i class="fa-solid fa-leaf text-emerald-400"></i>
+                        <span>PhytoMed AI Intelligence System</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed pr-6">
+                        An integrated deep learning computer vision and botanical-pharmacological retrieval system for leaf species identification, medicinal verification, and automated pharmacopoeial monograph synthesis. Built for college major project research and phytomedicinal diagnostics.
+                    </p>
+                    <div class="mt-4 flex items-center space-x-3 text-xs text-slate-400">
+                        <span class="inline-flex items-center text-emerald-400">
+                            <i class="fa-solid fa-shield-halved mr-1"></i> WHO Monograph Standards
+                        </span>
+                        <span>•</span>
+                        <span>Ayurvedic Pharmacopoeia of India (API)</span>
+                        <span>•</span>
+                        <span>ICMR Compendium</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-xs tracking-wider uppercase mb-3">System Features</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> MobileNetV3-Large Vision Backbone</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Grad-CAM Explainability Heatmaps</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> OpenCV Leaf Morphometry & Veins</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Toxic vs Medicinal Verification</li>
+                        <li><i class="fa-solid fa-check text-emerald-400 mr-1.5"></i> Verified Dosage & Preparation Engine</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-xs tracking-wider uppercase mb-3">College Major Project</h4>
+                    <p class="text-xs text-slate-400 mb-3">
+                        Packaged and ready for demonstration, viva defense, and research publication.
+                    </p>
+                    <a href="{{ url_for('download_zip') }}" class="inline-flex items-center text-xs font-semibold text-emerald-400 hover:text-emerald-300">
+                        <i class="fa-solid fa-download mr-1.5"></i> Get Complete Project ZIP
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800 text-xs flex flex-col sm:flex-row justify-between items-center text-slate-400">
+                <p>© 2026 PhytoMed AI System. Academic & Clinical Botanical Research Project.</p>
+                <p class="mt-2 sm:mt-0 text-slate-400">
+                    <span class="text-amber-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Clinical Notice:</span> Always consult certified healthcare providers before therapeutic herbal administration.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Scripts -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
