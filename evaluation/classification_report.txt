@@ -1,0 +1,42 @@
+================================================================================
+PHYTOMED AI: HELD-OUT TEST CLASSIFICATION REPORT
+Evaluated on: 2026-10-15 16:23:13 UTC
+Model Backbone: MobileNetV3-Large | Test Samples: 207 | Classes: 30
+================================================================================
+Class / Botanical Species                     | Precision | Recall    | F1-Score  | Support
+----------------------------------------------------------------------------------------
+Alpinia Galanga (Rasna)                       |   100.00% |   100.00% |   100.00% |       6
+Amaranthus Viridis (Arive-Dantu)              |   100.00% |   100.00% |   100.00% |      13
+Artocarpus Heterophyllus (Jackfruit)          |   100.00% |   100.00% |   100.00% |       6
+Azadirachta Indica (Neem)                     |    85.71% |   100.00% |    92.31% |       6
+Basella Alba (Basale)                         |   100.00% |   100.00% |   100.00% |      11
+Brassica Juncea (Indian Mustard)              |   100.00% |   100.00% |   100.00% |       5
+Carissa Carandas (Karanda)                    |   100.00% |    88.89% |    94.12% |       9
+Citrus Limon (Lemon)                          |   100.00% |   100.00% |   100.00% |       7
+Ficus Auriculata (Roxburgh fig)               |   100.00% |   100.00% |   100.00% |       5
+Ficus Religiosa (Peepal Tree)                 |   100.00% |   100.00% |   100.00% |       7
+Hibiscus Rosa-sinensis                        |   100.00% |    80.00% |    88.89% |       5
+Jasminum (Jasmine)                            |   100.00% |   100.00% |   100.00% |       8
+Mangifera Indica (Mango)                      |   100.00% |   100.00% |   100.00% |       7
+Mentha (Mint)                                 |   100.00% |   100.00% |   100.00% |      11
+Moringa Oleifera (Drumstick)                  |    90.00% |   100.00% |    94.74% |       9
+Muntingia Calabura (Jamaica Cherry-Gasagase)  |   100.00% |   100.00% |   100.00% |       6
+Murraya Koenigii (Curry)                      |   100.00% |   100.00% |   100.00% |       6
+Nerium Oleander (Oleander)                    |   100.00% |   100.00% |   100.00% |       7
+Nyctanthes Arbor-tristis (Parijata)           |   100.00% |   100.00% |   100.00% |       4
+Ocimum Tenuiflorum (Tulsi)                    |   100.00% |   100.00% |   100.00% |       6
+Piper Betle (Betel)                           |   100.00% |   100.00% |   100.00% |       6
+Plectranthus Amboinicus (Mexican Mint)        |   100.00% |   100.00% |   100.00% |       6
+Pongamia Pinnata (Indian Beech)               |   100.00% |   100.00% |   100.00% |       7
+Psidium Guajava (Guava)                       |   100.00% |   100.00% |   100.00% |       7
+Punica Granatum (Pomegranate)                 |   100.00% |   100.00% |   100.00% |       9
+Santalum Album (Sandalwood)                   |   100.00% |   100.00% |   100.00% |       7
+Syzygium Cumini (Jamun)                       |   100.00% |   100.00% |   100.00% |       5
+Syzygium Jambos (Rose Apple)                  |   100.00% |   100.00% |   100.00% |       6
+Tabernaemontana Divaricata (Crape Jasmine)    |   100.00% |   100.00% |   100.00% |       6
+Trigonella Foenum-graecum (Fenugreek)         |   100.00% |   100.00% |   100.00% |       4
+----------------------------------------------------------------------------------------
+MACRO AVERAGE                                 |    99.19% |    98.96% |    99.00% |     207
+TOP-1 ACCURACY                                |    99.03%
+TOP-3 ACCURACY                                |   100.00%
+================================================================================

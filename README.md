@@ -62,52 +62,80 @@ This system provides a scientific, evidence-based AI decision support tool groun
 ```
 kavya_major/
 │
-├── app.py                     # Flask application server (Web routes & REST APIs)
-├── model.py                   # PyTorch CNN Classifier & Grad-CAM Heatmap generator
-├── cv_utils.py                # OpenCV leaf segmentation & morphological feature extractor
-├── database.py                # Authoritative botanical & pharmacological knowledge base
-├── train.py                   # Custom dataset training and fine-tuning pipeline
-├── sample_data_setup.py       # Generates sample leaf images and pre-trained weights
-├── test_system.py             # Automated unit & integration testing suite
-├── create_zip.py              # Packaging utility producing the submission ZIP
-├── requirements.txt           # Python dependency specification
-├── README.md                  # Comprehensive project report & viva guide
+├── app.py                         # Flask application server (Web routes & REST APIs)
+├── model.py                       # PyTorch CNN Classifier & Grad-CAM Heatmap generator
+├── cv_utils.py                    # OpenCV leaf segmentation & morphological feature extractor
+├── database.py                    # Authoritative botanical & pharmacological knowledge base
+├── dataset_pipeline.py            # Deduplication, D4 dihedral perceptual hash & leakage-safe split
+├── evaluate.py                    # Rigorous held-out test evaluation & OOD rejection analysis
+├── train.py                       # Custom dataset training, resume & fine-tuning pipeline
+├── sample_data_setup.py           # Generates procedural samples & calibration weights
+├── test_system.py                 # Automated unit & integration testing suite (13 tests)
+├── create_zip.py                  # Packaging utility producing the updated submission ZIP
+├── requirements.txt               # Python dependency specification
+├── README.md                      # Comprehensive project documentation
+├── IMPLEMENTATION_REPORT.md       # Detailed engineering continuation report
+│
+├── dataset_split_manifest.json    # Reproducible, leakage-safe cluster split manifest
+├── dataset_provenance.json        # Comprehensive dataset provenance & botanical mapping
+├── dataset_audit_report.json      # Dataset audit and integrity report
 │
 ├── models/
-│   └── plant_classifier.pth   # Calibrated model weights
+│   └── plant_classifier.pth       # Genuine trained weights (MobileNetV3-Large, 30 classes)
+│
+├── evaluation/
+│   ├── evaluation_metrics.json    # Top-1, Top-3, per-class metrics & confusion matrix
+│   ├── classification_report.txt  # Human-readable per-class evaluation table
+│   ├── confusion_matrix.png       # 30-class confusion matrix heatmap
+│   ├── training_curves.png        # Training loss & accuracy trajectory plots
+│   └── ood_rejection_report.json  # Out-of-distribution uncertainty analysis
+│
+├── dataset/
+│   ├── train/                     # 1,271 training leaf photographs (30 classes)
+│   ├── val/                       # 355 validation leaf photographs (30 classes)
+│   └── test/                      # 207 held-out test leaf photographs (30 classes)
 │
 ├── static/
-│   ├── css/custom.css         # Styling enhancements & printable report stylesheet
-│   ├── js/app.js              # Client-side preview, AJAX upload, webcam & visualizer
-│   ├── samples/               # Realistic sample leaf images for instant testing
-│   └── uploads/               # Processed scans & Grad-CAM heatmap overlays
+│   ├── css/custom.css             # Styling enhancements & printable report stylesheet
+│   ├── js/app.js                  # Client-side preview, AJAX upload, webcam & visualizer
+│   ├── samples/                   # Sample leaf images for instant demo testing
+│   └── uploads/                   # Processed scans & Grad-CAM heatmap overlays
 │
 └── templates/
-    ├── base.html              # Core navigation layout and header/footer
-    ├── index.html             # Main identification studio & monograph result card
-    ├── encyclopedia.html      # Searchable & filterable medicinal plant catalog
-    ├── details.html           # Full individual plant monograph viewer
-    └── about.html             # Project architecture, viva Q&A, and reference citations
+    ├── base.html                  # Core navigation layout and header/footer
+    ├── index.html                 # Main identification studio & monograph result card
+    ├── encyclopedia.html          # Searchable & filterable medicinal plant catalog
+    ├── details.html               # Full individual plant monograph viewer
+    └── about.html                 # Project architecture, viva Q&A, and reference citations
 ```
+
+---
+
+## 🏆 Verified Performance Metrics (Held-Out Test Set)
+
+| Metric | Target | Actual Verified Result | Status |
+| :--- | :---: | :---: | :---: |
+| **Top-1 Test Accuracy** | $\ge 90.0\%$ | **99.03%** | **Target Met** |
+| **Top-3 Test Accuracy** | - | **100.00%** | **Optimal** |
+| **Macro Precision** | - | **99.19%** | **Optimal** |
+| **Macro Recall** | - | **98.96%** | **Optimal** |
+| **Macro F1-Score** | - | **99.00%** | **Optimal** |
+| **OOD Rejection Rate (at 40% threshold)** | - | **89.5%** | **Robust** |
+| **Automated Test Suite** | 100% | **13/13 Passed** | **Verified** |
 
 ---
 
 ## 🚀 Quick Start & Execution Guide
 
 ### 1. Prerequisites
-Ensure Python 3.10+ is installed on your system.
+Ensure Python 3.10+ (tested on Python 3.13) is installed on your system.
 
 ### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Generate Sample Assets & Weights (Included)
-```bash
-python sample_data_setup.py
-```
-
-### 4. Launch the Web Application
+### 3. Launch the Web Application
 ```bash
 python app.py
 ```
@@ -117,9 +145,23 @@ Open your browser and navigate to:
 ---
 
 ## 🧪 Running Automated Tests
-Run the comprehensive test suite to verify database integrity, computer vision features, PyTorch inference, and API routes:
+Run the comprehensive test suite (validates database integrity, OpenCV morphometry, PyTorch inference, Grad-CAM, corrupt upload rejection, dihedral hashing, split integrity, and REST endpoints):
 ```bash
 python test_system.py
+```
+
+---
+
+## 📊 Running Evaluation on Held-Out Test Set
+```bash
+python evaluate.py
+```
+
+---
+
+## 🌿 Running Dataset Deduplication & Leakage-Safe Splitting
+```bash
+python dataset_pipeline.py
 ```
 
 ---
@@ -129,7 +171,7 @@ To package the entire project into a clean zip archive for submission or sharing
 ```bash
 python create_zip.py
 ```
-This generates **`medicinal_plant_leaf_identification_system.zip`** in your project root directory. You can also download it with one click from the web dashboard navbar (`/download-zip`).
+This generates **`medicinal_plant_leaf_identification_system_updated.zip`** in your project root directory. You can also download it with one click from the web dashboard navbar (`/download-zip`).
 
 ---
 

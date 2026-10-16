@@ -1,0 +1,504 @@
+{
+  "dataset_title": "Indian Medicinal Leaves Dataset (30 Classes)",
+  "primary_sources": [
+    {
+      "name": "Hugging Face Hub (sanjeevani-ds/medicinal_leaves)",
+      "url": "https://huggingface.co/datasets/sanjeevani-ds/medicinal_leaves",
+      "repository_path": "Output folder"
+    },
+    {
+      "name": "Mendeley Data (Sachin et al., 2021)",
+      "doi": "10.17632/t256x42ms8.1",
+      "description": "Comprehensive leaf image dataset for Indian medicinal plants"
+    }
+  ],
+  "total_species_classes": 30,
+  "classes": [
+    "Alpinia Galanga (Rasna)",
+    "Amaranthus Viridis (Arive-Dantu)",
+    "Artocarpus Heterophyllus (Jackfruit)",
+    "Azadirachta Indica (Neem)",
+    "Basella Alba (Basale)",
+    "Brassica Juncea (Indian Mustard)",
+    "Carissa Carandas (Karanda)",
+    "Citrus Limon (Lemon)",
+    "Ficus Auriculata (Roxburgh fig)",
+    "Ficus Religiosa (Peepal Tree)",
+    "Hibiscus Rosa-sinensis",
+    "Jasminum (Jasmine)",
+    "Mangifera Indica (Mango)",
+    "Mentha (Mint)",
+    "Moringa Oleifera (Drumstick)",
+    "Muntingia Calabura (Jamaica Cherry-Gasagase)",
+    "Murraya Koenigii (Curry)",
+    "Nerium Oleander (Oleander)",
+    "Nyctanthes Arbor-tristis (Parijata)",
+    "Ocimum Tenuiflorum (Tulsi)",
+    "Piper Betle (Betel)",
+    "Plectranthus Amboinicus (Mexican Mint)",
+    "Pongamia Pinnata (Indian Beech)",
+    "Psidium Guajava (Guava)",
+    "Punica Granatum (Pomegranate)",
+    "Santalum Album (Sandalwood)",
+    "Syzygium Cumini (Jamun)",
+    "Syzygium Jambos (Rose Apple)",
+    "Tabernaemontana Divaricata (Crape Jasmine)",
+    "Trigonella Foenum-graecum (Fenugreek)"
+  ],
+  "botanical_validation": {
+    "Alpinia Galanga (Rasna)": {
+      "matched": true,
+      "monograph_id": "alpinia_galanga",
+      "scientific_name": "Alpinia galanga (L.) Willd.",
+      "common_names": [
+        "Rasna",
+        "Greater Galangal",
+        "Kulanjan",
+        "Blue Ginger",
+        "Mahabaracandra"
+      ],
+      "botanical_family": "Zingiberaceae (Ginger family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Amaranthus Viridis (Arive-Dantu)": {
+      "matched": true,
+      "monograph_id": "amaranthus_viridis",
+      "scientific_name": "Amaranthus viridis L.",
+      "common_names": [
+        "Arive-Dantu",
+        "Slender Amaranth",
+        "Green Amaranth",
+        "Tanduliyaka",
+        "Cholai"
+      ],
+      "botanical_family": "Amaranthaceae",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Nutra-Medicinal Herb"
+    },
+    "Artocarpus Heterophyllus (Jackfruit)": {
+      "matched": true,
+      "monograph_id": "artocarpus_heterophyllus",
+      "scientific_name": "Artocarpus heterophyllus Lam.",
+      "common_names": [
+        "Jackfruit",
+        "Panasa",
+        "Kathal",
+        "Jak"
+      ],
+      "botanical_family": "Moraceae (Mulberry family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Medicinal & Nutritional Tree"
+    },
+    "Azadirachta Indica (Neem)": {
+      "matched": true,
+      "monograph_id": "azadirachta_indica",
+      "scientific_name": "Azadirachta indica A. Juss.",
+      "common_names": [
+        "Neem",
+        "Indian Lilac",
+        "Margosa Tree",
+        "Nimba",
+        "Vepa"
+      ],
+      "botanical_family": "Meliaceae (Mahogany family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Basella Alba (Basale)": {
+      "matched": true,
+      "monograph_id": "basella_alba",
+      "scientific_name": "Basella alba L. (syn. Basella rubra L.)",
+      "common_names": [
+        "Basale",
+        "Malabar Spinach",
+        "Indian Spinach",
+        "Upodika",
+        "Pui Shak"
+      ],
+      "botanical_family": "Basellaceae",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Nutra-Medicinal Herb"
+    },
+    "Brassica Juncea (Indian Mustard)": {
+      "matched": true,
+      "monograph_id": "brassica_juncea",
+      "scientific_name": "Brassica juncea (L.) Czern.",
+      "common_names": [
+        "Indian Mustard",
+        "Brown Mustard",
+        "Sarson",
+        "Rai",
+        "Rajika"
+      ],
+      "botanical_family": "Brassicaceae (Mustard family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Carissa Carandas (Karanda)": {
+      "matched": true,
+      "monograph_id": "carissa_carandas",
+      "scientific_name": "Carissa carandas L.",
+      "common_names": [
+        "Karanda",
+        "Karamcha",
+        "Bengal Currant",
+        "Karamarda",
+        "Kalakkai"
+      ],
+      "botanical_family": "Apocynaceae (Dogbane family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Traditional & Folk Medicinal Shrub"
+    },
+    "Citrus Limon (Lemon)": {
+      "matched": true,
+      "monograph_id": "citrus_limon",
+      "scientific_name": "Citrus limon (L.) Osbeck",
+      "common_names": [
+        "Lemon",
+        "Nimbu",
+        "Jambira",
+        "Limbu"
+      ],
+      "botanical_family": "Rutaceae (Citrus family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Ficus Auriculata (Roxburgh fig)": {
+      "matched": true,
+      "monograph_id": "ficus_auriculata",
+      "scientific_name": "Ficus auriculata Lour.",
+      "common_names": [
+        "Roxburgh Fig",
+        "Broadleaf Fig",
+        "Timla",
+        "Gular (Himalayan)",
+        "Elephant Ear Fig"
+      ],
+      "botanical_family": "Moraceae (Mulberry family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Traditional Himalayan Medicinal Plant"
+    },
+    "Ficus Religiosa (Peepal Tree)": {
+      "matched": true,
+      "monograph_id": "ficus_religiosa",
+      "scientific_name": "Ficus religiosa L.",
+      "common_names": [
+        "Peepal",
+        "Sacred Fig",
+        "Bodhi Tree",
+        "Ashvattha",
+        "Arani"
+      ],
+      "botanical_family": "Moraceae (Mulberry family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Hibiscus Rosa-sinensis": {
+      "matched": true,
+      "monograph_id": "hibiscus_rosa_sinensis",
+      "scientific_name": "Hibiscus rosa-sinensis L.",
+      "common_names": [
+        "Hibiscus",
+        "China Rose",
+        "Japa",
+        "Gudhal",
+        "Shoeblackplant"
+      ],
+      "botanical_family": "Malvaceae (Mallow family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Jasminum (Jasmine)": {
+      "matched": true,
+      "monograph_id": "jasminum",
+      "scientific_name": "Jasminum officinale L. / Jasminum grandiflorum L.",
+      "common_names": [
+        "Jasmine",
+        "Jati",
+        "Chameli",
+        "Malati",
+        "Royal Jasmine"
+      ],
+      "botanical_family": "Oleaceae (Olive family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Mangifera Indica (Mango)": {
+      "matched": true,
+      "monograph_id": "mangifera_indica",
+      "scientific_name": "Mangifera indica L.",
+      "common_names": [
+        "Mango",
+        "Amra",
+        "Aam",
+        "Mavina Mara"
+      ],
+      "botanical_family": "Anacardiaceae (Cashew family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Tree"
+    },
+    "Mentha (Mint)": {
+      "matched": true,
+      "monograph_id": "mentha",
+      "scientific_name": "Mentha arvensis L. / Mentha spicata L.",
+      "common_names": [
+        "Mint",
+        "Field Mint",
+        "Pudina",
+        "Spearmint",
+        "Japanese Mint"
+      ],
+      "botanical_family": "Lamiaceae (Mint family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Moringa Oleifera (Drumstick)": {
+      "matched": true,
+      "monograph_id": "moringa_oleifera",
+      "scientific_name": "Moringa oleifera Lam.",
+      "common_names": [
+        "Moringa",
+        "Drumstick Tree",
+        "Shigru",
+        "Miracle Tree",
+        "Sahijan"
+      ],
+      "botanical_family": "Moringaceae",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial & Nutra-Medicinal Plant"
+    },
+    "Muntingia Calabura (Jamaica Cherry-Gasagase)": {
+      "matched": true,
+      "monograph_id": "muntingia_calabura",
+      "scientific_name": "Muntingia calabura L.",
+      "common_names": [
+        "Jamaica Cherry",
+        "Gasagase Hannu",
+        "Calabur",
+        "Singapore Cherry",
+        "Panama Berry"
+      ],
+      "botanical_family": "Muntingiaceae",
+      "is_medicinal": true,
+      "medicinal_status": "Traditional / Folk Medicinal Tree"
+    },
+    "Murraya Koenigii (Curry)": {
+      "matched": true,
+      "monograph_id": "murraya_koenigii",
+      "scientific_name": "Murraya koenigii (L.) Spreng.",
+      "common_names": [
+        "Curry Leaf",
+        "Kadi Patta",
+        "Kaalasaaka",
+        "Karivepaku",
+        "Kariveppila"
+      ],
+      "botanical_family": "Rutaceae (Citrus family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Nerium Oleander (Oleander)": {
+      "matched": true,
+      "monograph_id": "nerium_oleander",
+      "scientific_name": "Nerium oleander L.",
+      "common_names": [
+        "Oleander",
+        "Kaner",
+        "Karavira",
+        "Rose Bay",
+        "Adelfa"
+      ],
+      "botanical_family": "Apocynaceae (Dogbane family)",
+      "is_medicinal": false,
+      "medicinal_status": "Extremely Toxic / Poisonous Plant (Non-Medicinal)"
+    },
+    "Nyctanthes Arbor-tristis (Parijata)": {
+      "matched": true,
+      "monograph_id": "nyctanthes_arbor_tristis",
+      "scientific_name": "Nyctanthes arbor-tristis L.",
+      "common_names": [
+        "Parijata",
+        "Night-flowering Jasmine",
+        "Harsingar",
+        "Shiuli",
+        "Coral Jasmine"
+      ],
+      "botanical_family": "Oleaceae (sometimes placed in Verbenaceae)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Ocimum Tenuiflorum (Tulsi)": {
+      "matched": true,
+      "monograph_id": "ocimum_tenuiflorum",
+      "scientific_name": "Ocimum tenuiflorum L. (syn. Ocimum sanctum L.)",
+      "common_names": [
+        "Tulsi",
+        "Holy Basil",
+        "Sacred Basil",
+        "Kaphari"
+      ],
+      "botanical_family": "Lamiaceae (Mint family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Piper Betle (Betel)": {
+      "matched": true,
+      "monograph_id": "piper_betle",
+      "scientific_name": "Piper betle L.",
+      "common_names": [
+        "Betel Leaf",
+        "Paan",
+        "Tambula",
+        "Nagavalli",
+        "Vethalapaakku"
+      ],
+      "botanical_family": "Piperaceae (Pepper family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Plectranthus Amboinicus (Mexican Mint)": {
+      "matched": true,
+      "monograph_id": "plectranthus_amboinicus",
+      "scientific_name": "Coleus amboinicus Lour. (syn. Plectranthus amboinicus)",
+      "common_names": [
+        "Mexican Mint",
+        "Indian Borage",
+        "Ajwain Leaf",
+        "Karpuravalli",
+        "Dodda Patre"
+      ],
+      "botanical_family": "Lamiaceae (Mint family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Pongamia Pinnata (Indian Beech)": {
+      "matched": true,
+      "monograph_id": "pongamia_pinnata",
+      "scientific_name": "Millettia pinnata (L.) Panigrahi (syn. Pongamia pinnata)",
+      "common_names": [
+        "Indian Beech",
+        "Karanja",
+        "Pongam Oil Tree",
+        "Honge Mara",
+        "Karanj"
+      ],
+      "botanical_family": "Fabaceae (Legume family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant (External / Topical)"
+    },
+    "Psidium Guajava (Guava)": {
+      "matched": true,
+      "monograph_id": "psidium_guajava",
+      "scientific_name": "Psidium guajava L.",
+      "common_names": [
+        "Guava",
+        "Amrud",
+        "Peru",
+        "Koyya",
+        "Pera"
+      ],
+      "botanical_family": "Myrtaceae (Myrtle family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Punica Granatum (Pomegranate)": {
+      "matched": true,
+      "monograph_id": "punica_granatum",
+      "scientific_name": "Punica granatum L.",
+      "common_names": [
+        "Pomegranate",
+        "Dadima",
+        "Anaar",
+        "Mathulai",
+        "Dalim"
+      ],
+      "botanical_family": "Lythraceae (Pomegranate family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Santalum Album (Sandalwood)": {
+      "matched": true,
+      "monograph_id": "santalum_album",
+      "scientific_name": "Santalum album L.",
+      "common_names": [
+        "Sandalwood",
+        "Chandana",
+        "Shrikhanda",
+        "Safed Chandan",
+        "White Sandalwood"
+      ],
+      "botanical_family": "Santalaceae (Sandalwood family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Tree"
+    },
+    "Syzygium Cumini (Jamun)": {
+      "matched": true,
+      "monograph_id": "syzygium_cumini",
+      "scientific_name": "Syzygium cumini (L.) Skeels",
+      "common_names": [
+        "Jamun",
+        "Jambu",
+        "Black Plum",
+        "Java Plum",
+        "Naval"
+      ],
+      "botanical_family": "Myrtaceae (Myrtle family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    },
+    "Syzygium Jambos (Rose Apple)": {
+      "matched": true,
+      "monograph_id": "syzygium_jambos",
+      "scientific_name": "Syzygium jambos (L.) Alston",
+      "common_names": [
+        "Rose Apple",
+        "Malabar Plum",
+        "Gulab Jamun",
+        "Jambu",
+        "Pannerale"
+      ],
+      "botanical_family": "Myrtaceae (Myrtle family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Traditional & Folk Medicinal Tree"
+    },
+    "Tabernaemontana Divaricata (Crape Jasmine)": {
+      "matched": true,
+      "monograph_id": "tabernaemontana_divaricata",
+      "scientific_name": "Tabernaemontana divaricata (L.) R.Br. ex Roem. & Schult.",
+      "common_names": [
+        "Crape Jasmine",
+        "Pinwheel Flower",
+        "Nandivardhanam",
+        "Tagar",
+        "East Indian Rosebay"
+      ],
+      "botanical_family": "Apocynaceae (Dogbane family)",
+      "is_medicinal": true,
+      "medicinal_status": "Traditional Medicinal Plant with Toxic Potential"
+    },
+    "Trigonella Foenum-graecum (Fenugreek)": {
+      "matched": true,
+      "monograph_id": "trigonella_foenum_graecum",
+      "scientific_name": "Trigonella foenum-graecum L.",
+      "common_names": [
+        "Fenugreek",
+        "Methi",
+        "Methika",
+        "Greek Hay",
+        "Vendhayam"
+      ],
+      "botanical_family": "Fabaceae (Legume family)",
+      "is_medicinal": true,
+      "medicinal_status": "Recognized Pharmacopoeial Medicinal Plant"
+    }
+  },
+  "total_valid_images": 1833,
+  "corrupt_files_detected": 0,
+  "corrupt_files_details": [],
+  "exact_duplicate_sets": 0,
+  "near_duplicate_pairs": 40,
+  "specimen_clusters": 1808,
+  "anti_leakage_guarantee": "Strict cluster-level atomic partition assignment with D4 dihedral near-duplicate clustering",
+  "last_audited": "2026-10-15 16:13:07 UTC"
+}

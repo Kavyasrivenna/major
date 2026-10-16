@@ -242,6 +242,20 @@ document.addEventListener("DOMContentLoaded", () => {
         const mono = data.monograph;
         const morph = data.morphology;
 
+        // Uncertainty Handling
+        const uncertaintyAlert = document.getElementById("uncertaintyAlert");
+        const uncertaintyText = document.getElementById("uncertaintyText");
+        if (uncertaintyAlert) {
+            if (data.is_uncertain) {
+                uncertaintyAlert.classList.remove("hidden");
+                if (uncertaintyText && data.uncertainty_message) {
+                    uncertaintyText.textContent = data.uncertainty_message;
+                }
+            } else {
+                uncertaintyAlert.classList.add("hidden");
+            }
+        }
+
         // Common & Scientific Name
         document.getElementById("resCommonName").textContent = mono ? mono.common_names.join(" / ") : top.scientific_name;
         document.getElementById("resScientificName").textContent = mono ? mono.scientific_name : top.scientific_name;
@@ -331,20 +345,26 @@ document.addEventListener("DOMContentLoaded", () => {
             // Tab 4: Dosages
             const dosageList = document.getElementById("resDosageList");
             dosageList.innerHTML = "";
-            mono.dosage_information.forEach(d => {
-                const ddiv = document.createElement("div");
-                ddiv.className = "p-3 bg-emerald-50/40 rounded-xl border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2";
-                ddiv.innerHTML = `
-                    <div>
-                        <span class="text-[9px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded uppercase tracking-wider">${d.source}</span>
-                        <p class="font-bold text-slate-800 mt-1">${d.preparation}</p>
-                    </div>
-                    <div class="sm:text-right">
-                        <span class="text-sm font-extrabold text-emerald-700">${d.dose}</span>
-                    </div>
-                `;
-                dosageList.appendChild(ddiv);
-            });
+            if (!mono.dosage_information || mono.dosage_information.length === 0) {
+                dosageList.innerHTML = `<div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-500 text-xs italic">No verified dosage found in the available sources.</div>`;
+            } else {
+                mono.dosage_information.forEach(d => {
+                    const isUnverified = (d.dose && (d.dose.toLowerCase().includes("not verified") || d.dose.toLowerCase().includes("no verified") || d.dose.toLowerCase().includes("contraindicated"))) ||
+                                         (d.source && d.source.toLowerCase().includes("unverified"));
+                    const ddiv = document.createElement("div");
+                    ddiv.className = `p-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-2 ${isUnverified ? 'bg-amber-50/50 border-amber-200' : 'bg-emerald-50/40 border-emerald-200'}`;
+                    ddiv.innerHTML = `
+                        <div>
+                            <span class="text-[9px] font-bold ${isUnverified ? 'text-amber-800 bg-amber-100 border border-amber-200' : 'text-emerald-800 bg-emerald-100 border border-emerald-200'} px-1.5 py-0.5 rounded uppercase tracking-wider">${d.source}</span>
+                            <p class="font-bold text-slate-800 mt-1">${d.preparation}</p>
+                        </div>
+                        <div class="sm:text-right">
+                            <span class="text-sm font-extrabold ${isUnverified ? 'text-amber-700' : 'text-emerald-700'}">${d.dose}</span>
+                        </div>
+                    `;
+                    dosageList.appendChild(ddiv);
+                });
+            }
 
             // Tab 5: Precautions & Contraindications
             const precList = document.getElementById("resPrecautionsList");

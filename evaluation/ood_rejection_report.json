@@ -1,0 +1,122 @@
+{
+  "total_ood_samples": 19,
+  "uncertainty_threshold": 40.0,
+  "rejection_rate_pct": 89.47,
+  "mean_ood_confidence": 23.49,
+  "trials": [
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 20.81,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 17.37,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 18.7,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 25.77,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 26.94,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 18.26,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 26.39,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 24.27,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 18.92,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 18.28,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 19.89,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 18.74,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 20.99,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 20.47,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "gaussian_noise",
+      "max_confidence": 17.0,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "blank_white",
+      "max_confidence": 52.31,
+      "rejected_at_40pct": false,
+      "rejected_at_50pct": false
+    },
+    {
+      "type": "blank_gray",
+      "max_confidence": 20.96,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "blank_black",
+      "max_confidence": 18.25,
+      "rejected_at_40pct": true,
+      "rejected_at_50pct": true
+    },
+    {
+      "type": "solid_green",
+      "max_confidence": 42.06,
+      "rejected_at_40pct": false,
+      "rejected_at_50pct": true
+    }
+  ]
+}

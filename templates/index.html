@@ -237,6 +237,15 @@
                     <!-- Accent colored top border line -->
                     <div id="statusAccentBar" class="absolute top-0 left-0 right-0 h-1.5 bg-emerald-500"></div>
 
+                    <!-- Uncertainty Alert Banner -->
+                    <div id="uncertaintyAlert" class="hidden mb-4 p-4 bg-amber-50 border border-amber-300 rounded-xl text-amber-900 text-xs flex items-start space-x-3 shadow-sm">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600 text-base mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-amber-900 text-sm">Low-Confidence / Potential Out-of-Distribution Alert</p>
+                            <p id="uncertaintyText" class="mt-1 text-amber-800 leading-relaxed">The leaf image does not strongly match any supported botanical species. Always consult an authorized botanist or ayurvedic practitioner.</p>
+                        </div>
+                    </div>
+
                     <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mt-2">
                         <div>
                             <!-- Medicinal Status Badge -->

@@ -21,7 +21,7 @@ import create_zip
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UPLOADS_DIR = os.path.join(BASE_DIR, "static", "uploads")
 MODELS_DIR = os.path.join(BASE_DIR, "models")
-ZIP_PATH = os.path.join(BASE_DIR, "medicinal_plant_leaf_identification_system.zip")
+ZIP_PATH = os.path.join(BASE_DIR, "medicinal_plant_leaf_identification_system_updated.zip")
 
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 os.makedirs(MODELS_DIR, exist_ok=True)
@@ -74,7 +74,7 @@ def download_zip():
         ZIP_PATH,
         mimetype="application/zip",
         as_attachment=True,
-        download_name="medicinal_plant_leaf_identification_system.zip"
+        download_name="medicinal_plant_leaf_identification_system_updated.zip"
     )
 
 
@@ -94,11 +94,37 @@ def api_identify():
 
     file = request.files["leaf_image"]
     if file.filename == "":
-        return jsonify({"error": "Empty filename received"}), 400
+        return jsonify({"error": "Empty filename received. Please select an image file to upload."}), 400
 
+    # 1. Format / Extension Validation
+    allowed_extensions = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+    ext = os.path.splitext(file.filename)[1].lower()
+    if ext and ext not in allowed_extensions:
+        return jsonify({
+            "error": f"Unsupported file extension '{ext}'. Please upload an image file in JPG, PNG, WebP, or BMP format."
+        }), 400
+
+    # 2. Image Decoding & Integrity Validation
     try:
-        # Load image via PIL
+        pil_img = Image.open(file.stream)
+        pil_img.verify()
+    except Exception as img_err:
+        return jsonify({
+            "error": "The uploaded file could not be decoded as a valid image. It may be corrupted or not an image file."
+        }), 400
+
+    # Re-open after verify() to access pixel data
+    try:
+        file.stream.seek(0)
         pil_img = Image.open(file.stream).convert("RGB")
+        
+        # Verify minimum dimensions
+        w, h = pil_img.size
+        if w < 16 or h < 16:
+            return jsonify({
+                "error": f"Image dimensions ({w}x{h} px) are too small for morphological and neural network classification. Minimum size is 16x16 px."
+            }), 400
+
         img_np = np.array(pil_img)
         img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
 
@@ -134,16 +160,19 @@ def api_identify():
         response_payload = {
             "prediction": results["top_prediction"],
             "top_k": results["top_k"],
+            "is_uncertain": results.get("is_uncertain", False),
+            "uncertainty_message": results.get("uncertainty_message"),
             "monograph": results["monograph"],
             "morphology": morphology_metrics,
             "segmented_image_url": seg_url,
-            "gradcam_image_url": gradcam_url
+            "gradcam_image_url": gradcam_url,
+            "checkpoint_status": results.get("checkpoint_status")
         }
         return jsonify(response_payload)
 
     except Exception as e:
         print(f"[ERROR] Inference pipeline failure: {e}")
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": f"Inference processing error: {str(e)}"}), 500
 
 
 @app.route("/api/species/<species_id>", methods=["GET"])
